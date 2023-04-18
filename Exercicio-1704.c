@@ -2,16 +2,21 @@
 #include <stdio.h>
 
 int quant;
-float *vetor, numeros[2];
+float *vetor, numeros[2], *vetorB, arrayB[2];
 
+void CopyArray (){
+
+
+}
 
 int main (){
     vetor = &numeros[2];
+    vetorB = &arrayB[2];
 
     scanf ("%d", quant);
 
-    vetor = (float*)malloc(sizeof(float)*5);
-    vetor = realloc(vetor, quant*(sizeof(float)));
+    vetor = (float*)malloc(sizeof(float)*quant);
+    vetorB = (float*)malloc(sizeof(float)*quant);
 
     
     
