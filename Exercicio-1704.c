@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdio.h>
 
-int quant;
-float *vetor, numeros[2], *vetorB, arrayB[2];
+int quant, clock;
+float *vetor, numeros[2], *vetorB, arrayB[2], temp;
 
 void CopyArray (){
 
+   for (clock=0;clock<quant;clock++){
+      arrayB[clock] == numeros[clock];
+
+   }
 
 }
 
