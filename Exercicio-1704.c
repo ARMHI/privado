@@ -1,51 +1,58 @@
+#include <stdlib.h>
 #include <stdio.h>
-#include <stdio.h>
-
-int quant, clock, EndArray, StartArray;
-float *vetor, numeros[2], *vetorB, arrayB[2], temp;
-
-void CopyArray (numeros[], arrayB[], clock, quant){
-
-   for (clock=0;clock<quant;clock++){
-      arrayB[clock] == numeros[clock];
-
-   }
-
-}
-
-void SplitTopDown(A[], StartArray, EndArray, B[]){
-
-int MidArray;
 
 
-    if (EndArray-StartArray<=1){
-        return;
-    }
-
-    MidArray = (StartArray+EndArray)/2;
-
-    SplitTopDown(A[], StartArray, MidArray, B[]);
-    SplitTopDown(A[], MidArray, EndArray, B[]);
 
 
-    MergeTopDown(A[], StartArray, MidArray, EndArray, B[]);
-
-}
-
-void MergeTopDown(){}
 
 int main (){
-    vetor = &numeros[2];
-    vetorB = &arrayB[2];
 
-    scanf ("%d", quant);
+    int *c, clock, *q, quant;
+    float *A, *B, arrayA[1], arrayB[1];
 
-    vetor = (float*)malloc(sizeof(float)*quant);
-    vetorB = (float*)malloc(sizeof(float)*quant);
+   //printf ("before all");
+    A = &arrayA[0];
+    B = &arrayB[0];
 
-CopyArray(numeros[], arrayB[], 0, quant);
+    scanf ("%d", &quant);
+    //printf ("%d", quant);
 
-SplitTopDown(numeros[], 0, quant, arrayB[]);
-    
-    
+    q = (int*)malloc(sizeof(int)*1);
+    c = (int*)malloc(sizeof(int)*1);
+    A = (float*)malloc(sizeof(float)*quant);
+    B = (float*)malloc(sizeof(float)*quant);
+   // printf ("after mallocs");
+
+    for (clock=0;clock<quant;clock++){
+        scanf("%f", &A[clock]);
+    //printf("accepting data array numeros %d \n", clock);
+    //printf("quant %d \n", quant);
+   // printf("accepting data array numeros %.2f \n", A[clock]);
+        
+    }
+
+    CopyArray(arrayA[], clock, quant, arrayB);
+
+
+    free(A);
+    free(B);
+    free(c);
+    free(q);
+
+    return 0;
+}
+
+void CopyArray(arrayA[], clock, quant, arrayB[]){
+
+    for (clock = 0; clock < quant; clock++){
+        arrayA[clock]=arrayB[clock];
+        printf("posicao %d do array foi copiada\n", clock);
+        printf("Array A %.2f \n", arrayA);
+        printf("Array B %.2f \n", arrayB);
+    //printf("%d\n", quant);
+    //printf("%d\n", clock);
+
+
+    }
+
 }
