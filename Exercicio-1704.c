@@ -42,6 +42,8 @@ void MergeTopDown(float *A, float *B, int start, int mid, int end, int clock){
     
 }
 
+*/
+
 
 void SplitTopDown (float *A, float *B, int start, int end, int clock){
 
@@ -53,13 +55,17 @@ if ((end-start)<=1){
 
 mid = (start + end)/2;
 
+
+
 SplitTopDown(A, B, start, mid, 0);
 SplitTopDown(A, B, mid, end, 0);
 
 MergeTopDown(A, B, start, mid, end, 0);
 
+//printf("\n %d %d %d \n", start, mid, end);
+
 }
-*/
+
 
 int main (){
 
@@ -82,13 +88,10 @@ int main (){
 
     CopyArray(0, quanti, A, B);
 
- //   SplitTopDown(A, B, click, quanti, click);
+printf ("%d", quanti);
+    SplitTopDown(A, B, 0, quanti, 0);
 
-  /*  for(clock=0;clock<quant;clock++){
-        printf("Array A %.2f \n", A[clock]);
-        printf("Array B %.2f \n", B[clock]);
-    }
-    */
+    for(click=0;click<quanti;click++){ printf("Array A %.2f \n", A[click]);   printf("Array B %.2f \n", B[click]); }
 
     free(A);
     free(B);
