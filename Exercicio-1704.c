@@ -1,26 +1,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-    float *A, *B, arrayA[1], arrayB[1];
+    int  click, quanti;
+    float *A, *B;
 
-void CopyArray(int clock,int quant){
-    for (clock=0;clock<quant;clock++){
-        printf("Array A %.2f \n", arrayA[clock]);
-    }
+void CopyArray(int clock,int quant, float *A, float *B){
+
     for (clock = 0; clock < quant; clock++){
-      printf("Array A %.2f \n", arrayA[clock]);
-       printf("Array B %.2f \n", arrayB[clock]);
-        arrayB[clock]=arrayA[clock];
+        //printf ("%d\n", clock);
+        B[clock]=A[clock];
       //  printf("posicao %d do array foi copiada\n", clock);
-     // printf("Array A %.2f \n", arrayA[clock]);
-      // printf("Array B %.2f \n", arrayB[clock]);
-    //printf("%d\n", quant);
-    //printf("%d\n", clock);
-
-
     }
+
+ //   for (clock=0;clock<quant;clock++){ printf("Array A %.2f \n", A[clock]); printf("Array B %.2f \n", B[clock]);}
 
 }
+
+/*
 
 void MergeTopDown(float *A, float *B, int start, int mid, int end, int clock){
 
@@ -30,12 +26,12 @@ void MergeTopDown(float *A, float *B, int start, int mid, int end, int clock){
 
     for(clock = start; clock < end; clock++ ){
 
-        if ( s<mid && (m>=end || arrayA[s]<=arrayA[m])){
-            arrayB[clock]=arrayA[s];
+        if ( s<mid && (m>=end || A[s]<=A[m])){
+            B[clock]=A[s];
             s=s+1;
         }
         else{
-            arrayB[clock]=arrayA[m];
+            B[clock]=A[m];
             m=m+1;
         }
 
@@ -45,6 +41,7 @@ void MergeTopDown(float *A, float *B, int start, int mid, int end, int clock){
     
     
 }
+
 
 void SplitTopDown (float *A, float *B, int start, int end, int clock){
 
@@ -62,48 +59,39 @@ SplitTopDown(A, B, mid, end, 0);
 MergeTopDown(A, B, start, mid, end, 0);
 
 }
+*/
 
 int main (){
 
-    int *c, clock, *q, quant;
 
-   //printf ("before all");
-    A = &arrayA[0];
-    B = &arrayB[0];
+    scanf ("%d", &quanti);
 
-    scanf ("%d", &quant);
-    //printf ("%d", quant);
+    float *A = (float*)malloc(sizeof(float)*quanti);
+    float *B = (float*)malloc(sizeof(float)*quanti);
 
-    q = (int*)malloc(sizeof(int)*1);
-    c = (int*)malloc(sizeof(int)*1);
-    A = (float*)malloc(sizeof(float)*quant);
-    B = (float*)malloc(sizeof(float)*quant);
-   // printf ("after mallocs");
-
-    for (clock=0;clock<quant;clock++){
-        scanf("%f", &arrayA[clock]);
-    //printf("accepting data array numeros %d \n", clock);
-    //printf("quant %d \n", quant);
-    //printf("accepting data array numeros %.2f \n", arrayA[clock]);
+    for (click=0;click<quanti;click++){
+        scanf("%f", &A[click]);
         
     }
 
- //   for (clock=0;clock<quant;clock++){
-  //      printf("Array A %.2f \n", arrayA[clock]);
-  //  }
-    CopyArray(clock, quant);
+    for (click=0;click<quanti;click++){
+       printf("Array A %.2f \n", A[click]);
+       printf("Array B %.2f \n", B[click]);
+   }
 
-    SplitTopDown(A, B, clock, quant, clock);
 
-    for(clock=0;clock<quant;clock++){
-        printf("Array A %.2f \n", arrayA[clock]);
-        printf("Array B %.2f \n", arrayB[clock]);
+    CopyArray(0, quanti, A, B);
+
+ //   SplitTopDown(A, B, click, quanti, click);
+
+  /*  for(clock=0;clock<quant;clock++){
+        printf("Array A %.2f \n", A[clock]);
+        printf("Array B %.2f \n", B[clock]);
     }
+    */
 
     free(A);
     free(B);
-    free(c);
-    free(q);
 
     return 0;
 }
