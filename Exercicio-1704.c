@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -17,23 +16,25 @@ void CopyArray(int clock,int quant, float *A, float *B){
 
 }
 
-/*
+
 
 void MergeTopDown(float *A, float *B, int start, int mid, int end, int clock){
 
     int s=start, m=mid;
 
-    printf ("merge TopDown");
+    printf (" TopDownMerge \n");
 
     for(clock = start; clock < end; clock++ ){
-
+        printf (" %d %d %.2f %.2f\n", s, m, A[s], A[m]);
         if ( s<mid && (m>=end || A[s]<=A[m])){
             B[clock]=A[s];
             s=s+1;
+            printf ("if\n");
         }
         else{
             B[clock]=A[m];
             m=m+1;
+            printf ("else\n");
         }
 
     }
@@ -43,7 +44,7 @@ void MergeTopDown(float *A, float *B, int start, int mid, int end, int clock){
     
 }
 
-*/
+
 
 
 void SplitTopDown (float *A, float *B, int start, int end, int clock){
@@ -89,7 +90,7 @@ int main (){
 
     CopyArray(0, quanti, A, B);
 
-printf ("%d", quanti);
+   // printf ("%d", quanti);
     SplitTopDown(A, B, 0, quanti, 0);
 
     for(click=0;click<quanti;click++){ printf("Array A %.2f \n", A[click]);   printf("Array B %.2f \n", B[click]); }
