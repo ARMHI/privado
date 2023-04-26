@@ -77,7 +77,9 @@ int main (){
     scanf ("%d", &quanti);
 
     float *A = (float*)malloc(sizeof(float)*quanti+1);
+        if(A==NULL){ printf(" Memory Allocation Error"); return 0;}
     float *B = (float*)malloc(sizeof(float)*quanti+1);
+        if(B==NULL){ printf(" Memory Allocation Error"); return 0;}
 
     //A[quanti]= 0.00;
 
